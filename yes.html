@@ -86,9 +86,13 @@
       }
 
       /* Показываем элементы с прозрачностью 1 после загрузки страницы */
-      .container.show img,
+      .container.show img {
+        opacity: 1;
+      }
+
       .container.show .progress-bars-container {
         opacity: 1;
+        z-index: 2; /* Устанавливаем z-index в 2 для видимости */
       }
     </style>
   </head>
