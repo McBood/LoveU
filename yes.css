@@ -1,0 +1,18 @@
+body {
+  background-image: url(./assets/images/bkcg3.webp);
+  background-repeat: no-repeat;
+  background-size: cover; /* Чтобы фон занимал всю доступную область */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  overflow: hidden;
+}
+progress {
+  width: 80%;
+  max-width: 400px; /* Ограничиваем максимальную ширину прогресс бара */
+  height: 30px; /* Увеличиваем высоту прогресс бара */
+  margin-bottom: 20px;
+}

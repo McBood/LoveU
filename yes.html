@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="yes.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Neucha&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="./assets/images/alpaca.png"
+      type="image/x-icon"
+    />
+    <title>Она сказала да!</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        position: relative;
+      }
+
+      img {
+        width: 100%;
+        display: block;
+        opacity: 0;
+        transition: opacity 2s ease-in-out; /* Добавляем анимацию изменения прозрачности */
+      }
+
+      .progress-bars-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 2s ease-in-out; /* Добавляем анимацию изменения прозрачности */
+      }
+
+      .progress-bars-container > div {
+        margin-bottom: 20px;
+      }
+
+      .progress-bar {
+        width: 300px; /* Максимальная ширина прогресс-бара */
+        height: 15px;
+        border-radius: 5%;
+        border: none;
+        outline: none;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+        position: relative;
+      }
+
+      .progress {
+        height: 100%;
+        background-color: #4caf50;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        transition: width 1s ease-in-out;
+      }
+
+      p,
+      h1 {
+        color: white;
+        font-family: Neucha;
+      }
+
+      @media screen and (max-width: 600px) {
+        .progress-bars-container {
+          position: static;
+          transform: none;
+        }
+      }
+
+      /* Показываем элементы с прозрачностью 1 после загрузки страницы */
+      .container.show img,
+      .container.show .progress-bars-container {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Ура! Люблю тебя!</h1>
+      <img src="./assets/images/wolf.gif" />
+      <div class="progress-bars-container">
+        <div>
+          <p>Любовь</p>
+          <div class="progress-bar">
+            <div class="progress" id="progress1"></div>
+          </div>
+        </div>
+        <div>
+          <p>Верность</p>
+          <div class="progress-bar">
+            <div class="progress" id="progress2"></div>
+          </div>
+        </div>
+        <div>
+          <p>Счастье</p>
+          <div class="progress-bar">
+            <div class="progress" id="progress3"></div>
+          </div>
+        </div>
+        <div>
+          <p>Аня попа</p>
+          <div class="progress-bar">
+            <div class="progress" id="progress4"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Анимируем заполнение прогресс-баров
+      document.addEventListener("DOMContentLoaded", function () {
+        animateProgressBar("progress1", 100, function () {
+          animateProgressBar("progress2", 100, function () {
+            animateProgressBar("progress3", 100, function () {
+              animateProgressBar("progress4", 400);
+            });
+          });
+        });
+
+        // Добавляем класс, чтобы показать элементы после загрузки
+        document.querySelector(".container").classList.add("show");
+      });
+
+      function animateProgressBar(progressId, targetWidthPercentage, callback) {
+        var progressBar = document.getElementById(progressId);
+        var currentWidth = 0;
+        var increment = 1;
+        var speed = 10; // меньшее значение - быстрее анимация
+
+        var interval = setInterval(function () {
+          if (currentWidth >= targetWidthPercentage) {
+            clearInterval(interval);
+            if (callback) {
+              callback(); // Вызываем колбэк, если он задан
+            }
+          } else {
+            currentWidth += increment;
+            progressBar.style.width = currentWidth + "%";
+          }
+        }, speed);
+      }
+    </script>
+  </body>
+</html>

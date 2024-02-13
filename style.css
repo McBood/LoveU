@@ -1,0 +1,130 @@
+body {
+  background-image: url(./assets/images/bkcg3.webp);
+  background-repeat: no-repeat;
+  background-size: cover; /* Чтобы фон занимал всю доступную область */
+  width: 100%;
+  overflow-x: hidden;
+  flex-direction: column; /* Размещаем элементы в столбец */
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+img {
+  width: 50%;
+  border-radius: 10%;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+}
+
+.section {
+  width: 100%;
+  height: auto;
+}
+
+.aos {
+  width: 970px;
+  margin: 0 auto;
+  max-width: 90%;
+  display: flex;
+  flex-wrap: wrap; /* Для правильного переноса элементов на новую строку */
+  justify-content: center; /* Центрируем элементы по горизонтали */
+}
+
+.left,
+.right {
+  margin-top: 80px;
+  margin-bottom: 20px; /* Добавляем отступ снизу */
+}
+
+.rightImg {
+  float: right;
+}
+
+.title {
+  color: white;
+  font-family: Neucha;
+}
+
+.neucha-regular {
+  font-family: "Neucha", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#text {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.buttons {
+  margin-top: 50px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.hover-button {
+  position: relative;
+  overflow: hidden;
+  padding: 12px 18px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5%;
+  background-color: red;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.1s ease;
+  margin-left: 10px;
+}
+
+.hover-button::before {
+  content: "ДА!";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #28a745;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.1s ease;
+}
+
+.hover-button:hover::before {
+  opacity: 1;
+  transition-delay: 0.1s; /* Задержка для появления текста "ДА" */
+}
+
+.hover-button:hover {
+  color: transparent; /* Прячем основной текст кнопки при наведении */
+}
+
+.static-button {
+  margin-left: 10px; /* Отступ между кнопками */
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5%;
+}
