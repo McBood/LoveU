@@ -4,11 +4,9 @@ body {
   background-size: cover; /* Чтобы фон занимал всю доступную область */
   display: flex;
   justify-content: center;
-  align-items: center;
   width: 100%;
   height: auto;
   margin: 0 auto;
-  overflow-x: hidden;
 }
 progress {
   width: 80%;
